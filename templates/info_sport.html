@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        #content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #sport-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+        h2, h3 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <h1>Select A Sport</h1>
+
+        <label for="sports">Choose a sport:</label>
+        <select id="sports" onchange="displaySportInfo()">
+            <option value="" selected disabled>Select a sport</option>
+            <option value="soccer">Soccer</option>
+            <option value="basketball">Basketball</option>
+            <option value="tennis">Tennis</option>
+            <option value="cricket">Cricket</option>
+            <option value="swimming">Swimming</option>
+        </select>
+
+        <div id="sport-info"></div>
+    </div>
+
+    <script>
+        function displaySportInfo() {
+            const sport = document.getElementById('sports').value;
+            const info = document.getElementById('sport-info');
+            
+            let sportInfo = "";
+            let backgroundImage = "";
+
+            switch (sport) {
+                case "soccer":
+                    sportInfo = `
+                        <h2>Soccer (Football)</h2>
+                        <h3>History:</h3>
+                        <p>Soccer, also known as football in many countries, has its origins dating back to ancient civilizations. The modern game was codified in England in the 19th century and has grown to become the most popular sport worldwide.</p>
+                        <h3>Rules:</h3>
+                        <p>The game is played by two teams of 11 players on a rectangular field. Players attempt to score by getting the ball into the opposing team’s goal, and the team with the most goals after 90 minutes wins.</p>
+                        <h3>Positions:</h3>
+                        <ul>
+                            <li><strong>Goalkeeper:</strong> Defends the goal, the only player allowed to handle the ball within the penalty area.</li>
+                            <li><strong>Defenders:</strong> Protect their goal by blocking opposing attackers.</li>
+                            <li><strong>Midfielders:</strong> Link between defense and attack, responsible for controlling play.</li>
+                            <li><strong>Forwards:</strong> Main goal-scorers of the team.</li>
+                        </ul>
+                        <h3>Equipment:</h3>
+                        <p>Soccer players use a ball, cleats, shin guards, and jerseys. Goalkeepers also wear gloves for protection.</p>
+                        <h3>Famous Venues:</h3>
+                        <ul>
+                            <li><strong>Camp Nou:</strong> Barcelona, Spain</li>
+                            <li><strong>Old Trafford:</strong> Manchester, England</li>
+                            <li><strong>Maracanã Stadium:</strong> Rio de Janeiro, Brazil</li>
+                        </ul>
+                        <h3>Famous Players:</h3>
+                        <p>Lionel Messi, Cristiano Ronaldo, Pelé, Diego Maradona.</p>
+                        <h3>Major Tournaments:</h3>
+                        <p>FIFA World Cup, UEFA Champions League, Copa America.</p>
+                    `;
+                    backgroundImage = "url('https://example.com/soccer-background.jpg')";
+                    break;
+                case "basketball":
+                    sportInfo = `
+                        <h2>Basketball</h2>
+                        <h3>History:</h3>
+                        <p>Basketball was invented in 1891 by Dr. James Naismith in Springfield, Massachusetts, as a way to keep athletes in shape during winter. It has since evolved into a global sport played professionally and recreationally.</p>
+                        <h3>Rules:</h3>
+                        <p>Two teams of five players compete to score points by throwing a ball through a hoop 10 feet high. A field goal is worth 2 or 3 points depending on the distance of the shot, and free throws are worth 1 point.</p>
+                        <h3>Positions:</h3>
+                        <ul>
+                            <li><strong>Point Guard:</strong> The playmaker who controls the flow of the game.</li>
+                            <li><strong>Shooting Guard:</strong> Primary scorer, often tasked with outside shooting.</li>
+                            <li><strong>Small Forward:</strong> Versatile players responsible for scoring, defending, and rebounding.</li>
+                            <li><strong>Power Forward:</strong> Known for strength and inside scoring, usually strong rebounders.</li>
+                            <li><strong>Center:</strong> Tallest player, responsible for rebounding and defending near the basket.</li>
+                        </ul>
+                        <h3>Equipment:</h3>
+                        <p>Basketball players use a basketball, a hoop, jerseys, and athletic shoes. Indoor courts are usually made of wood.</p>
+                        <h3>Famous Venues:</h3>
+                        <ul>
+                            <li><strong>Madison Square Garden:</strong> New York, USA</li>
+                            <li><strong>Staples Center:</strong> Los Angeles, USA</li>
+                            <li><strong>United Center:</strong> Chicago, USA</li>
+                        </ul>
+                        <h3>Famous Players:</h3>
+                        <p>Michael Jordan, LeBron James, Kobe Bryant, Shaquille O'Neal.</p>
+                        <h3>Major Tournaments:</h3>
+                        <p>NBA Finals, FIBA World Cup, Olympic Games.</p>
+                    `;
+                    backgroundImage = "url('https://example.com/basketball-background.jpg')";
+                    break;
+                case "tennis":
+                    sportInfo = `
+                        <h2>Tennis</h2>
+                        <h3>History:</h3>
+                        <p>Tennis originated in France in the 12th century, and the modern game was first played in England in the late 19th century. It has since grown into one of the most prestigious sports globally.</p>
+                        <h3>Rules:</h3>
+                        <p>Tennis is played on a rectangular court divided by a net. Players use rackets to hit a ball over the net into the opponent's court. Points are scored when an opponent fails to return the ball within the bounds of the court.</p>
+                        <h3>Types of Strokes:</h3>
+                        <ul>
+                            <li><strong>Serve:</strong> The shot that starts the point.</li>
+                            <li><strong>Forehand:</strong> A stroke made on the dominant side of the body.</li>
+                            <li><strong>Backhand:</strong> A stroke made on the non-dominant side of the body.</li>
+                            <li><strong>Volley:</strong> A shot hit before the ball bounces.</li>
+                        </ul>
+                        <h3>Equipment:</h3>
+                        <p>Tennis players use rackets, tennis balls, and appropriate tennis shoes. Matches can be played on clay, grass, or hard courts.</p>
+                        <h3>Famous Venues:</h3>
+                        <ul>
+                            <li><strong>Wimbledon:</strong> London, England</li>
+                            <li><strong>Roland Garros:</strong> Paris, France</li>
+                            <li><strong>Arthur Ashe Stadium:</strong> New York, USA</li>
+                        </ul>
+                        <h3>Famous Players:</h3>
+                        <p>Roger Federer, Serena Williams, Rafael Nadal, Novak Djokovic.</p>
+                        <h3>Major Tournaments:</h3>
+                        <p>Wimbledon, US Open, Australian Open, French Open.</p>
+                    `;
+                    backgroundImage = "url('https://example.com/tennis-background.jpg')";
+                    break;
+                case "cricket":
+                    sportInfo = `
+                        <h2>Cricket</h2>
+                        <h3>History:</h3>
+                        <p>Cricket originated in England in the 16th century and has since become a popular sport in countries such as India, Australia, and South Africa. It is known for its strategy and variety of formats.</p>
+                        <h3>Rules:</h3>
+                        <p>Cricket is played with a bat and ball between two teams of 11 players. Teams take turns batting and fielding, and the objective is to score runs by hitting the ball and running between wickets or hitting boundaries.</p>
+                        <h3>Formats:</h3>
+                        <ul>
+                            <li><strong>Test Cricket:</strong> Traditional format played over five days.</li>
+                            <li><strong>One Day Internationals (ODIs):</strong> 50-over format played in one day.</li>
+                            <li><strong>Twenty20 (T20):</strong> Shortest format with 20 overs per side.</li>
+                        </ul>
+                        <h3>Equipment:</h3>
+                        <p>Cricket players use a bat, ball, protective gear (pads, gloves, helmets), and stumps for the wicket.</p>
+                        <h3>Famous Venues:</h3>
+                        <ul>
+                            <li><strong>Lord’s:</strong> London, England</li>
+                            <li><strong>Melbourne Cricket Ground:</strong> Melbourne, Australia</li>
+                            <li><strong>Eden Gardens:</strong> Kolkata, India</li>
+                        </ul>
+                        <h3>Famous Players:</h3>
+                        <p>Sachin Tendulkar, Virat Kohli, Don Bradman, Brian Lara.</p>
+                        <h3>Major Tournaments:</h3>
+                        <p>Cricket World Cup, ICC T20 World Cup, The Ashes.</p>
+                    `;
+                    backgroundImage = "url('https://example.com/cricket-background.jpg')";
+                    break;
+                case "swimming":
+                    sportInfo = `
+                        <h2>Swimming</h2>
+                        <h3>History:</h3>
+                        <p>Swimming has been practiced since ancient times and was included in the first modern Olympic Games in 1896. It has developed into a major competitive and recreational activity worldwide.</p>
+                        <h3>Styles of Swimming:</h3>
+                        <ul>
+                            <li><strong>Freestyle:</strong> The fastest stroke, where swimmers can use any technique, usually front crawl.</li>
+                            <li><strong>Breaststroke:</strong> A slower stroke, performed with a frog-like kick and simultaneous arm movement.</li>
+                            <li><strong>Backstroke:</strong> Performed on the back, with an alternating arm stroke and flutter kick.</li>
+                            <li><strong>Butterfly:</strong> A powerful and demanding stroke, involving both arms moving simultaneously.</li>
+                        </ul>
+                        <h3>Equipment:</h3>
+                        <p>Swimmers wear swimsuits, goggles, and swim caps. Competitive swimming takes place in pools with starting blocks and lanes.</p>
+                        <h3>Famous Venues:</h3>
+                        <ul>
+                            <li><strong>Olympic Aquatics Stadium:</strong> Rio de Janeiro, Brazil</li>
+                            <li><strong>London Aquatics Centre:</strong> London, England</li>
+                            <li><strong>Melbourne Sports and Aquatic Centre:</strong> Melbourne, Australia</li>
+                        </ul>
+                        <h3>Famous Swimmers:</h3>
+                        <p>Michael Phelps, Katie Ledecky, Ian Thorpe, Mark Spitz.</p>
+                        <h3>Major Tournaments:</h3>
+                        <p>Olympic Games, FINA World Championships, Pan Pacific Swimming Championships.</p>
+                    `;
+                    backgroundImage = "url('https://example.com/swimming-background.jpg')";
+                    break;
+                default:
+                    sportInfo = "<p>Please select a valid sport from the dropdown menu.</p>";
+            }
+
+            info.innerHTML = sportInfo;
+            document.body.style.backgroundImage = backgroundImage;
+        }
+    </script>
+
+</body>
+</html>
