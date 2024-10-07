@@ -12,7 +12,8 @@ db = mysql.connector.connect(
     host=os.getenv("localhost"),  # Remote host of the MySQL server
     user=os.getenv("root"),  # MySQL user
     password=os.getenv("PURNAsri@2003"),  # MySQL password
-    database=os.getenv("fitness"),  # MySQL database name
+    database=os.getenv("fitness"),# MySQL database name
+    port=3306
 )
 @app.route('/')
 def index():
