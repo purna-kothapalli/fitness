@@ -2,16 +2,17 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import mysql.connector
 import otp
 from flask_mail import Mail, Message
-
+import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Database connection setup
+
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="PURNAsri@2003",
-    database="fitness"
+    host=os.getenv("localhost"),  # Remote host of the MySQL server
+    user=os.getenv("root"),  # MySQL user
+    password=os.getenv("PURNAsri@2003"),  # MySQL password
+    database=os.getenv("fitness"),  # MySQL database name
 )
 @app.route('/')
 def index():
